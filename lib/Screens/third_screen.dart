@@ -1,9 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:news__app/forth_screen.dart';
+import 'package:news__app/Screens/forth_screen.dart';
 
 class ThirdScreen extends StatelessWidget {
-  const ThirdScreen({super.key});
-
+   const ThirdScreen({
+     super.key,
+      required this.text, required this.description, required this.imageUrl
+   });
+ final String? text;
+  final String? description;
+   final String? imageUrl;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -35,7 +40,7 @@ class ThirdScreen extends StatelessWidget {
               height: MediaQuery.of(context).size.height * 400 / 812,
               width: MediaQuery.of(context).size.width,
               child: Image.network(
-                  'https://s3-alpha-sig.figma.com/img/1b25/3b61/593c0eac981b4da390568868d72bc803?Expires=1693180800&Signature=qG2VjKuWKcttyBAZ4v0LfigBwXfDNKA4tTFBNNGexBkqWyj0duB8j8TxEIISOFOlMrxBDmNBqdBWQ2ufCuT6UYYAbiUtcdCMLkN6T36ibcgsfLeaQbNKMcyvMabDi53RHJbfdKWjEy82tjjXLy28iFn2Re~mVi5CNtaZd63UVUmqWGSS3yWul9FrrEcpz9PiKU-4TNlieahU42yvFOmOuZAyD3IhqnYqPfzry2OEwbnzHnpn~TBxZZdbU~m4pdexhy~nWgCS8wJSJbXVHLVKr05I5fkIW7A6jhRsenj-fk~eDVp3XH-IoHz26GpnsvzpWGPbLeO0~SotdVkBmpmviQ__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4',
+                 '$imageUrl',
                    fit: BoxFit.cover,
               ),
 
@@ -51,28 +56,34 @@ class ThirdScreen extends StatelessWidget {
                 color: Colors.white,
                 borderRadius: BorderRadius.vertical(top: Radius.circular(30))),
 
-            child: const Align(
+            child:  Align(
               alignment: Alignment.centerLeft,
-              child: Column(children: [
-                Text(
-                    "LONDON — Cryptocurrencies “have no intrinsic\n value” and people who invest in them should be\n prepared to lose all their money, Bank of England\n Governor Andrew Bailey said."),
-                SizedBox(
-                  height: 20,
-                ),
-                Padding(
-                  padding: EdgeInsets.only(left: 25.0),
-                  child: Text(
-                      "Digital currencies like bitcoin, ether and even dogecoin\n have been on a tear this year, reminding some\n investors of the 2017 crypto bubble in which bitcoin\n blasted toward 20,000, only to sink as low as 3,122\n a year later."),
-                ),
-                SizedBox(
-                  height: 20,
-                ),
-                Padding(
-                  padding: EdgeInsets.only(left: 25.0),
-                  child: Text(
-                      " Asked at a press conference Thursday about the\n rising value of cryptocurrencies, Bailey said: “They\n have no intrinsic value. That doesn’t mean to say\n people don’t put value on them, because they can\n have extrinsic value. But they have no intrinsic value"),
-                ),
-              ]),
+              child: SingleChildScrollView(
+                child: Column(children: [
+                  // Text(
+                      // "LONDON — Cryptocurrencies “have no intrinsic\n value” and people who invest in them should be\n prepared to lose all their money, Bank of England\n Governor Andrew Bailey said."),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(left: 25.0),
+                    child: Text(
+                        '$description',style: TextStyle(
+                      fontSize: 18,
+                    ),
+                    ),),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(left: 25.0),
+                    child: Text(
+                    '$text',style: TextStyle(
+                      fontSize: 18,
+                    ),
+                    )                  ),
+                ]),
+              ),
             ),
           ),
           Center(

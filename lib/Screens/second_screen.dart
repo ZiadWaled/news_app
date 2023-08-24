@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:news__app/custom_text_button_list_view.dart';
-import 'package:news__app/third_screen.dart';
+import 'package:news__app/Screens/third_screen.dart';
 
 // ignore: must_be_immutable
 class SecondScreen extends StatelessWidget {
@@ -90,7 +90,7 @@ class SecondScreen extends StatelessWidget {
                                                       Icons
                                                           .restore_from_trash_rounded,
                                                       color: Colors.black),
-                                                  const SizedBox(width: 5,),
+                                                  const SizedBox(width: 5 ,),
                                                   Text(
                                                     'Reset',
                                                     style: TextStyle(
@@ -159,10 +159,10 @@ class SecondScreen extends StatelessWidget {
                   ),
                   CustomTextListView(
                     onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) =>  const ThirdScreen()),
-                      );
+                      // Navigator.push(
+                      //   context,
+                      //   MaterialPageRoute(builder: (context) =>   ThirdScreen()),
+                      // );
                     },
                   ),
                   CustomTextListView(

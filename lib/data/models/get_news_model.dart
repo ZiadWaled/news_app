@@ -8,18 +8,17 @@ class GetNewsModel {
   late final int totalResults;
   late final List<Articles> articles;
 
-  GetNewsModel.fromJson(Map<String, dynamic> json) {
+  GetNewsModel.fromJson(Map<String, dynamic> json){
     status = json['status'];
     totalResults = json['totalResults'];
-    articles =
-        List.from(json['articles']).map((e) => Articles.fromJson(e)).toList();
+    articles = List.from(json['articles']).map((e)=>Articles.fromJson(e)).toList();
   }
 
   Map<String, dynamic> toJson() {
     final _data = <String, dynamic>{};
     _data['status'] = status;
     _data['totalResults'] = totalResults;
-    _data['articles'] = articles.map((e) => e.toJson()).toList();
+    _data['articles'] = articles.map((e)=>e.toJson()).toList();
     return _data;
   }
 }
@@ -44,13 +43,13 @@ class Articles {
   late final String publishedAt;
   late final String content;
 
-  Articles.fromJson(Map<String, dynamic> json) {
+  Articles.fromJson(Map<String, dynamic> json){
     source = Source.fromJson(json['source']);
-    author = json['author'];
+    author = null;
     title = json['title'];
     description = json['description'];
     url = json['url'];
-    urlToImage = json['urlToImage'];
+    urlToImage = null;
     publishedAt = json['publishedAt'];
     content = json['content'];
   }
@@ -77,7 +76,7 @@ class Source {
   late final String? id;
   late final String name;
 
-  Source.fromJson(Map<String, dynamic> json) {
+  Source.fromJson(Map<String, dynamic> json){
     id = null;
     name = json['name'];
   }

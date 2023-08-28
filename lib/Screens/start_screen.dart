@@ -46,10 +46,10 @@ class HomeView extends StatelessWidget {
                     child: Text("Please press the button to get news"),
                   );
                 } else if (state is GetNewsLoading) {
-                  return const Center(
-                    child: SpinKitCgircle(
-                      color: Colors.blue, // لون المؤشر
-                      size: 50.0, // حجم المؤشر
+                  return  const Center(
+                    child: SpinKitCircle(
+                      color: Colors.blue,
+                      size: 50.0,
                     ),
                   );
                 } else if (state is GetNewsSuccess) {
@@ -91,34 +91,58 @@ class HomeView extends StatelessWidget {
                             child: ListView.builder(
                               itemCount: state.response.articles.length,
                               itemBuilder: (context, index) {
+                                final article = state.response.articles[index];
+
                                 return AnimationConfiguration.staggeredList(
                                   position: index,
                                   duration: const Duration(milliseconds: 500),
-                                  child: FadeInAnimation(
-                                    child: GestureDetector(
-                                      onTap: () {
-                                        Navigator.push(
-                                          context,
-                                          MaterialPageRoute(
-                                            builder: (context) => ThirdScreen(
-                                              text: state.response.articles[index].author.toString(),
-                                              description: state.response.articles[index].description.toString(),
-                                              imageUrl: state.response.articles[index].urlToImage ??
-                                                  "https://media.istockphoto.com/id/1264074047/vector/breaking-news-background.jpg?s=612x612&w=0&k=20&c=C5BryvaM-X1IiQtdyswR3HskyIZCqvNRojrCRLoTN0Q=",
-                                            ),
+                                  child: SlideAnimation(
+                                    verticalOffset: 50.0,
+                                    child: FadeInAnimation(
+                                      child: GestureDetector(
+                                        onTap: () {
+                                          // Handle the tap event
+                                        },
+                                        child: Container(
+                                          margin: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
+                                          padding: const EdgeInsets.all(15.0),
+                                          decoration: BoxDecoration(
+                                            color: Colors.white,
+                                            boxShadow: [
+                                              BoxShadow(
+                                                color: Colors.grey.withOpacity(0.5),
+                                                spreadRadius: 2,
+                                                blurRadius: 5,
+                                                offset: const Offset(0, 3),
+                                              ),
+                                            ],
                                           ),
-                                        );
-                                      },
-                                      child: Stack(
-                                        children: [
-                                          // بقية الكود هنا
-                                        ],
+                                          child: Column(
+                                            crossAxisAlignment: CrossAxisAlignment.start,
+                                            children: [
+                                              Text(
+                                                article.title,
+                                                style: TextStyle(
+                                                  fontSize: 18,
+                                                  fontWeight: FontWeight.bold,
+                                                ),
+                                              ),
+                                              const SizedBox(height: 8),
+                                              Text(
+                                                article.description,
+                                                style: TextStyle(fontSize: 16),
+                                              ),
+                                              // Add other widgets here if needed
+                                            ],
+                                          ),
+                                        ),
                                       ),
                                     ),
                                   ),
                                 );
                               },
-                            ),
+                            )
+
                           ),
                         ),
                       ],

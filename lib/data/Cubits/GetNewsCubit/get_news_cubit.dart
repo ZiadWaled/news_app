@@ -23,6 +23,7 @@ class GetNewsCubit extends Cubit<GetNewsState> {
         }
       });
     } catch (error) {
+
       emit(GetNewsError());
     }
   }

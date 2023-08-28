@@ -6,9 +6,9 @@ class ThirdScreen extends StatelessWidget {
      super.key,
       required this.text, required this.description, required this.imageUrl
    });
- final String? text;
-  final String? description;
-   final String? imageUrl;
+ final String text;
+ final String description;
+ final String imageUrl;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -62,23 +62,23 @@ class ThirdScreen extends StatelessWidget {
                 child: Column(children: [
                   // Text(
                       // "LONDON — Cryptocurrencies “have no intrinsic\n value” and people who invest in them should be\n prepared to lose all their money, Bank of England\n Governor Andrew Bailey said."),
-                  SizedBox(
+                  const SizedBox(
                     height: 20,
                   ),
                   Padding(
-                    padding: EdgeInsets.only(left: 25.0),
+                    padding: const EdgeInsets.only(left: 25.0),
                     child: Text(
-                        '$description',style: TextStyle(
+                        description,style: const TextStyle(
                       fontSize: 18,
                     ),
                     ),),
-                  SizedBox(
+                  const SizedBox(
                     height: 20,
                   ),
                   Padding(
-                    padding: EdgeInsets.only(left: 25.0),
+                    padding: const EdgeInsets.only(left: 25.0),
                     child: Text(
-                    '$text',style: TextStyle(
+                    text,style: const TextStyle(
                       fontSize: 18,
                     ),
                     )                  ),
